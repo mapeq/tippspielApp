@@ -1,3 +1,3 @@
-export * from './sTANDING';
-export * from './tEAM';
+export * from './standing';
+export * from './team';
 export * from './tipp';

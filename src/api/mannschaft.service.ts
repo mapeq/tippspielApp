@@ -18,7 +18,7 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs/Observable';
 
-import { TEAM } from '../model/tEAM';
+import { Team } from '../model/team';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -62,9 +62,9 @@ export class MannschaftService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getTeams(observe?: 'body', reportProgress?: boolean): Observable<Array<TEAM>>;
-    public getTeams(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<TEAM>>>;
-    public getTeams(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<TEAM>>>;
+    public getTeams(observe?: 'body', reportProgress?: boolean): Observable<Array<Team>>;
+    public getTeams(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Team>>>;
+    public getTeams(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Team>>>;
     public getTeams(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         let headers = this.defaultHeaders;
@@ -83,7 +83,7 @@ export class MannschaftService {
             'application/json'
         ];
 
-        return this.httpClient.get<Array<TEAM>>(`${this.basePath}/MANNSCHAFT`,
+        return this.httpClient.get<Array<Team>>(`${this.basePath}/MANNSCHAFT`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,

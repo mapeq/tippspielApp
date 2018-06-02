@@ -18,7 +18,7 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs/Observable';
 
-import { STANDING } from '../model/sTANDING';
+import { Standing } from '../model/standing';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -62,9 +62,9 @@ export class StatsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getStanding(observe?: 'body', reportProgress?: boolean): Observable<Array<STANDING>>;
-    public getStanding(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<STANDING>>>;
-    public getStanding(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<STANDING>>>;
+    public getStanding(observe?: 'body', reportProgress?: boolean): Observable<Array<Standing>>;
+    public getStanding(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<Standing>>>;
+    public getStanding(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<Standing>>>;
     public getStanding(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         let headers = this.defaultHeaders;
@@ -83,7 +83,7 @@ export class StatsService {
             'application/json'
         ];
 
-        return this.httpClient.get<Array<STANDING>>(`${this.basePath}/STANDING`,
+        return this.httpClient.get<Array<Standing>>(`${this.basePath}/STANDING`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,

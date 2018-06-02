@@ -11,7 +11,7 @@
  */
 
 
-export interface TEAM {
+export interface Team {
     MANNSCHAFT_ID?: number;
     NAME?: string;
     ICON?: string;
