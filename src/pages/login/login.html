@@ -6,7 +6,7 @@
 -->
 <ion-header >
   <ion-navbar class="headerBack" >
-    <ion-title ><div class= "apptitle"> <span (click)="showInfo()"> trans-o-flex Dashboard</span></div></ion-title>
+    <ion-title ><div class= "apptitle"> <span (click)="showInfo()">WM 2018 Tippspiel</span></div></ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -22,9 +22,6 @@
       <h1>Anmeldung</h1>
     </ion-card-header>
     <ion-card-content>
-      <ion-item *ngIf="currentUser">
-      <div> Hallo {{currentUser.firstName}} {{currentUser.lastName}}</div>
-      </ion-item>
       <form [formGroup] = "loginForm">
         <ion-item *ngIf="!currentUser" >
           <ion-label  floating >Benutzername</ion-label>
@@ -36,16 +33,8 @@
           <ion-input formControlName= "password" type="password" ></ion-input>
         </ion-item>
 
-        <ion-item  *ngIf="currentUser"  >
-            <ion-label floating>Niederlassung</ion-label>
-            <ion-select #select1 formControlName="selectedDepot"  interface="action-sheet" *ngIf="depots && depots.length > 0">
-              <ion-option *ngFor="let depot of depots" [value]="depot">{{depot.code}}-{{depot.name}} ({{depot.depotNo}}) </ion-option>
-            </ion-select>
-        </ion-item>
-
 
         <button *ngIf="!currentUser" ion-button color="tof-orange" type="submit" [disabled]="!loginForm.valid" class="loginBtn" (click) = "login()" >Anmelden</button>
-        <button *ngIf="currentUser" ion-button color="tof-orange" type="submit" [disabled]="!loginForm.valid" class="loginBtn" (click) = "selectDepot()">DG Auswahl</button>
         <button  ion-button color="tof-orange" type="cancel"  class="loginBtn" (click)="cancel()">Abrechen</button>
       </form>
 

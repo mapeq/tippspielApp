@@ -1,16 +1,13 @@
 page-login {
 
+/*
   .contentBack{
       background-image: url("../assets/img/bg_tof.jpg");
       background-repeat: no-repeat;
       background-size: cover;
   }
+*/
 
-.toolbar-background-md,
-.toolbar-background-ios,
-.toolbar-background-wp{
-  @include  gradient-orange;
-}
 
 .card-title {
   text-align: center;

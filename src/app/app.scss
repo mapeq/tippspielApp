@@ -80,9 +80,21 @@
 
 }
 
+
+.menuContent .toolbar-background-md{
+  background: linear-gradient(to bottom,lightgrey,grey);
+  color: white;
+}
+
 .menuContent .userName{
  font-size: large;
  font-weight: bolder;
+}
+
+
+.menuContent .content-md{
+ background-color: grey;
+ background-image: inherit;
 }
 
 .menuContent .menuItem{
