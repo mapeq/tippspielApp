@@ -6,6 +6,7 @@ import { Configuration } from './configuration';
 import { GameService } from './api/game.service';
 import { ImageService } from './api/image.service';
 import { MannschaftService } from './api/mannschaft.service';
+import { StatsService } from './api/stats.service';
 import { TippService } from './api/tipp.service';
 import { UserService } from './api/user.service';
 
@@ -17,6 +18,7 @@ import { UserService } from './api/user.service';
     GameService,
     ImageService,
     MannschaftService,
+    StatsService,
     TippService,
     UserService ]
 })
