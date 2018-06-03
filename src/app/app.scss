@@ -15,6 +15,17 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+
+/*
+@font-face {
+ font-family: 'PT Sans';
+ font-weight: normal;
+ font-style: normal;
+ src: url('../assets/fonts/pt-sans/PTC55F.ttf') format('truetype');
+}
+*/
+
+
 .content-md{
   text-shadow: 1px 1px 2px #000, 2px 2px 4px #6f6e72;
   color: #fffdfd;
@@ -22,6 +33,21 @@
   background-image: url(../assets/imgs/bgTrophy2.bmp) ;
   background-repeat: no-repeat;
   background-size: cover;
+
+  -ms-overflow-style: none;  // IE 10+
+  overflow: -moz-scrollbars-none;  // Firefox
+
+  ::-webkit-scrollbar {
+    display: none;
+    width: 0px;
+    height: 10px;
+  }
+
+  .no-scroll .scroll-content{
+         overflow: hidden;
+    }
+
+
 }
 .toolbar-md{
   background-color: white;
@@ -36,4 +62,43 @@
 .toolbar-background-md{
   background: linear-gradient(to bottom,rgba(255,255,255,0.5),rgba(0,57,166,0.5),rgba(213,43,30,0.5));
   color: white;
+}
+
+
+/**
+        MENU Styles
+**/
+
+
+.menuContent .userBox{
+   margin-bottom: 15%;
+   background-color: white;
+ //  background-color: rgba(255, 255, 255, .5);
+ border: solid;
+ border-color: lightgrey;
+ border-radius: 15px;
+
+}
+
+.menuContent .userName{
+ font-size: large;
+ font-weight: bolder;
+}
+
+.menuContent .menuItem{
+ font-size: 1.8rem;
+ }
+
+
+.menuContent .item-md,.item-ios,.item-wp {
+   background-color: rgba(255, 255, 255, .5);
+   padding-left: 0px;
+   padding-right: 0px;
+   margin-bottom: 4px;
+
+ }
+
+button.menuButton.item.item-block.item-md:hover,button.menuButton.item.item-block.item-ios:hover {
+ font-weight: bolder;
+ background-color: rgba(180, 179, 179, 0.5)!important;
 }

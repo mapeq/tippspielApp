@@ -1,0 +1,39 @@
+page-login {
+
+  .contentBack{
+      background-image: url("../assets/img/bg_tof.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+  }
+
+.toolbar-background-md,
+.toolbar-background-ios,
+.toolbar-background-wp{
+  @include  gradient-orange;
+}
+
+.card-title {
+  text-align: center;
+}
+
+.card-md,
+.card-ios,
+.card-wp{
+  align-self: center;
+  max-width: 1000px;
+//  min-width: 500px;
+}
+
+.apptitle{
+  font-size: 3vw;
+  font-weight: bold;
+  text-align: center;
+}
+
+.loginrow{
+  padding: 5vw;
+
+}
+
+
+}

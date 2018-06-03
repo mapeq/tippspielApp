@@ -1,0 +1,173 @@
+swagger: "2.0"
+info:
+  description: "This is a sample server Petstore server.  You can find out more about     Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).      For this sample, you can use the api key `special-key` to test the authorization     filters."
+  version: "1.0.0"
+  title: "Tippspiel"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "apiteam@swagger.io"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "192.168.0.199"
+basePath: "/tippspielDB"
+
+
+schemes:
+- "http"
+paths:
+  /users/{token}:
+   post:
+      tags:
+      - "Tipp"
+      summary: "Submit a Tipp"
+      description: ""
+      operationId: "addBet"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+        - in: path
+          name: token
+          type: string
+          required: true
+          description: User token. 
+        - in: "body"
+          name: "tipps"
+          description: "array of users bets"
+          required: true
+          schema: 
+            type: array
+            items:
+              $ref: "#/definitions/tipp"
+      responses:
+        200:
+          description: "Success"
+          
+  /STANDING:
+   get:
+      tags:
+      - "Stats"
+      summary: "Submit a Tipp"
+      description: ""
+      operationId: "getStanding"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          schema: 
+            type: array
+            items:
+              $ref: '#/definitions/standing'
+          description: "Success"
+          
+  /MANNSCHAFT:
+   get:
+      tags:
+      - "Mannschaft"
+      summary: "Submit a Tipp"
+      description: ""
+      operationId: "getTeams"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          schema: 
+            type: array
+            items:
+              $ref: '#/definitions/team'
+          description: "Success"
+      
+definitions:
+  standing:
+    type: "object"
+    properties:
+      rang:
+        type: integer
+        format: int64
+      nick:
+        type: string
+      punkte:
+        type: integer
+        format: int64
+
+  team:
+    type: "object"
+    properties:
+      MANNSCHAFT_ID:
+        type: integer
+        format: int64
+      NAME:
+        type: string
+      ICON:
+        type: string
+      TEAMCOLOR1:
+        type: string
+      TEAMCOLOR2:
+        type: string
+      FIFA_RANG:
+        type: integer
+        format: int32
+      ANZAHL_SIEGE:
+        type: integer
+        format: int32
+      ANZAHL_NIEDERLAGEN:
+        type: integer
+        format: int32
+      ANZAHL_UNENTSCHIEDEN:
+        type: integer
+        format: int32
+      TORVERHAELTNIS:
+        type: string
+      SATZSTATUS:
+        type: string
+      ACTIVE:
+        type: integer
+        format: int32
+        
+    
+  tipp:
+    type: "object"
+    properties:
+      SPIEL_ID:
+        type: "integer"
+        format: "int64"
+      BEZEICNUNG:
+        type: "string"
+      NAME1:
+        type: "string"
+      NAME2:
+        type: "string"
+      ICON1:
+        type: "string"
+      ICON2:
+        type: "string"
+      TORE1:
+        type: "integer"
+        format: "int32"
+      TORE2:
+        type: "integer"
+        format: "int32"
+      ANSTOSS:
+        type: "string"
+        format: "date-time"
+      GRUPPE:
+        type: "string"
+      GRUPPE_ID:
+        type: "integer"
+        format: "int64"
+      ANZ_TIPP:
+        type: "integer"
+        format: "int32"
+      TIPPTORE1:
+        type: "integer"
+        format: "int32"
+      TIPPTORE2:
+        type: "integer"
+        format: "int32"
+ 

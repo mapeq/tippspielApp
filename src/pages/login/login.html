@@ -1,0 +1,70 @@
+<!--
+  Generated template for the Login page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header >
+  <ion-navbar class="headerBack" >
+    <ion-title ><div class= "apptitle"> <span (click)="showInfo()"> trans-o-flex Dashboard</span></div></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="contentBack">
+
+<ion-grid>
+  <ion-row class="loginrow" justify-content-center row-2>
+    <ion-col col-auto >
+
+
+  <ion-card>
+    <ion-card-header>
+      <h1>Anmeldung</h1>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item *ngIf="currentUser">
+      <div> Hallo {{currentUser.firstName}} {{currentUser.lastName}}</div>
+      </ion-item>
+      <form [formGroup] = "loginForm">
+        <ion-item *ngIf="!currentUser" >
+          <ion-label  floating >Benutzername</ion-label>
+          <ion-input  formControlName= "userName" type="text" ></ion-input>
+        </ion-item>
+
+        <ion-item  *ngIf="!currentUser">
+          <ion-label floating>Passwort</ion-label>
+          <ion-input formControlName= "password" type="password" ></ion-input>
+        </ion-item>
+
+        <ion-item  *ngIf="currentUser"  >
+            <ion-label floating>Niederlassung</ion-label>
+            <ion-select #select1 formControlName="selectedDepot"  interface="action-sheet" *ngIf="depots && depots.length > 0">
+              <ion-option *ngFor="let depot of depots" [value]="depot">{{depot.code}}-{{depot.name}} ({{depot.depotNo}}) </ion-option>
+            </ion-select>
+        </ion-item>
+
+
+        <button *ngIf="!currentUser" ion-button color="tof-orange" type="submit" [disabled]="!loginForm.valid" class="loginBtn" (click) = "login()" >Anmelden</button>
+        <button *ngIf="currentUser" ion-button color="tof-orange" type="submit" [disabled]="!loginForm.valid" class="loginBtn" (click) = "selectDepot()">DG Auswahl</button>
+        <button  ion-button color="tof-orange" type="cancel"  class="loginBtn" (click)="cancel()">Abrechen</button>
+      </form>
+
+
+    </ion-card-content>
+
+</ion-card>
+
+
+
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="loginrow" justify-content-center row-2>
+        <ion-col col-auto >
+          <img class="imageRotate" src="assets/img/TOF_Logo.png" alt="">
+        </ion-col>
+      </ion-row>
+  </ion-grid>
+
+
+</ion-content>
