@@ -11,8 +11,14 @@
  */
 
 
-export interface Standing {
-    rang?: number;
-    nick?: string;
-    punkte?: number;
+export interface LoginData {
+    LOGIN?: boolean;
+    TOKEN?: string;
+    USER_ID?: number;
+    NICK?: string;
+    VORNAME?: string;
+    NAME?: string;
+    ERROR_CODE?: string;
+    EMAIL?: string;
+    PW?: string;
 }
