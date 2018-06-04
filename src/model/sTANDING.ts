@@ -15,4 +15,5 @@ export interface Standing {
     rang?: number;
     nick?: string;
     punkte?: number;
+    image?:number;
 }

@@ -9,6 +9,10 @@
 
 <ion-content padding>
 
+<img src="http://192.168.0.199/tippspielDB/IMAGE/1/S/"/>
+
+
+
 
   <ion-grid  no-padding class="tipptabelle">
     <ion-row align-items-center class="headerRow">
@@ -18,6 +22,7 @@
     </ion-row>
       <ion-row *ngFor="let user of standing; even as isEven" justify-content-center class="tableRow" [ngClass]="isEven ? 'even' : 'odd' ">
           <ion-col col-2 > {{user.rang}}</ion-col>
+          <ion-col> <img src= "http://192.168.0.199/tippspielDB/IMAGE/{{user.image}}/S/"/>  </ion-col>
           <ion-col> {{user.nick}}</ion-col>
           <ion-col col-2> {{user.punkte}}</ion-col>
       </ion-row>

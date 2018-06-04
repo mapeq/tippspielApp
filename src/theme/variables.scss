@@ -101,21 +101,21 @@ $colors: (
 }
 
 @mixin gradient-orange{
-  background-image: -ms-linear-gradient(top, #ffb76b 0%, #ff7f04 100%);
-  background-image: -moz-linear-gradient(top, #ffb76b 0%, #ff7f04 100%);
-  background-image: -o-linear-gradient(top, #ffb76b 0%, #ff7f04 100%);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffb76b), color-stop(100, #ff7f04));
-  background-image: -webkit-linear-gradient(top, #ffb76b 0%, #ff7f04 100%);
-  background-image: linear-gradient(to bottom, #ffb76b 0%, #ff7f04 100%);
+  background-image: -ms-linear-gradient(top, rgb(5, 105, 35) 0%, rgb(4, 191, 60) 100%);
+  background-image: -moz-linear-gradient(top, rgb(5, 105, 35) 0%, rgb(4, 191, 60) 100%);
+  background-image: -o-linear-gradient(top, rgb(5, 105, 35) 0%, rgb(4, 191, 60) 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgb(5, 105, 35)), color-stop(100, rgb(4, 191, 60)));
+  background-image: -webkit-linear-gradient(top, rgb(5, 105, 35) 0%, rgb(4, 191, 60) 100%);
+  background-image: linear-gradient(to bottom, rgb(5, 105, 35) 0%, rgb(4, 191, 60) 100%);
 }
 
 @mixin gradient-orange-white {
-  background: -moz-linear-gradient(0deg, rgba(252,165,13,1) 0%, rgba(255,255,255,1) 100%); /* ff3.6+ */
-  background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(252,165,13,1)), color-stop(100%, rgba(255,255,255,1))); /* safari4+,chrome */
-  background: -webkit-linear-gradient(0deg, rgba(252,165,13,1) 0%, rgba(255,255,255,1) 100%); /* safari5.1+,chrome10+ */
-  background: -o-linear-gradient(0deg, rgba(252,165,13,1) 0%, rgba(255,255,255,1) 100%); /* opera 11.10+ */
-  background: -ms-linear-gradient(0deg, rgba(252,165,13,1) 0%, rgba(255,255,255,1) 100%); /* ie10+ */
-  background: linear-gradient(90deg, rgba(252,165,13,1) 0%, rgba(255,255,255,1) 100%); /* w3c */
+  background: -moz-linear-gradient(0deg, rgb(5, 105, 35) 0%, rgba(255,255,255,1) 100%); /* ff3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgb(5, 105, 35)), color-stop(100%, rgba(255,255,255,1))); /* safari4+,chrome */
+  background: -webkit-linear-gradient(0deg, rgb(5, 105, 35) 0%, rgba(255,255,255,1) 100%); /* safari5.1+,chrome10+ */
+  background: -o-linear-gradient(0deg,rgb(5, 105, 35) 0%, rgba(255,255,255,1) 100%); /* opera 11.10+ */
+  background: -ms-linear-gradient(0deg, rgb(5, 105, 35) 0%, rgba(255,255,255,1) 100%); /* ie10+ */
+  background: linear-gradient(90deg, rgb(5, 105, 35) 0%, rgba(255,255,255,1) 100%); /* w3c */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FCA50D', endColorstr='#ffffff',GradientType=1 ); /* ie6-9 */
 }
 
