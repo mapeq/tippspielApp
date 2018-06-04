@@ -70,22 +70,20 @@
 **/
 
 
-.menuContent .userBox{
-   margin-bottom: 15%;
-   background-color: white;
- //  background-color: rgba(255, 255, 255, .5);
- border: solid;
- border-color: lightgrey;
- border-radius: 15px;
-
+button.menuButton.item.item-block.item-md:hover,button.menuButton.item.item-block.item-ios:hover {
+  font-weight: bolder;
+  background-color: rgba(180, 179, 179, 0.5)!important;
 }
 
 
+<<<<<<< HEAD
 .menuContent .toolbar-background-md{
   background: linear-gradient(to bottom,lightgrey,grey);
   color: white;
 }
 
+=======
+>>>>>>> 288db9290bd8c5f5523f1753460b3024caafee8c
 .menuContent .userName{
  font-size: large;
  font-weight: bolder;
@@ -113,4 +111,19 @@
 button.menuButton.item.item-block.item-md:hover,button.menuButton.item.item-block.item-ios:hover {
  font-weight: bolder;
  background-color: rgba(180, 179, 179, 0.5)!important;
+}
+
+
+.menuContent{
+      @include gradient-orange-white ;
+}
+
+
+.toolbar-background-md,.toolbar-background-ios,.toolbar-background-wp{
+    @include  gradient-orange;
+}
+
+.menuHeader .toolbar-background-md,.toolbar-background-ios,.toolbar-background-wp{
+  //  @include  gradient-light-grey;
+      @include  gradient-orange;
 }

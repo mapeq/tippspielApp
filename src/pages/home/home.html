@@ -11,13 +11,13 @@
 
 
   <ion-grid  no-padding class="tipptabelle">
-    <ion-row align-items-center class="header">
+    <ion-row align-items-center class="headerRow">
         <ion-col col-2>Rang</ion-col>
         <ion-col>Nick</ion-col>
         <ion-col col-2>Punkte</ion-col>
     </ion-row>
-      <ion-row *ngFor="let user of standing; even as isEven" justify-content-center [ngClass]="isEven ? 'even' : 'odd'">
-          <ion-col col-2> {{user.rang}}</ion-col>
+      <ion-row *ngFor="let user of standing; even as isEven" justify-content-center class="tableRow" [ngClass]="isEven ? 'even' : 'odd' ">
+          <ion-col col-2 > {{user.rang}}</ion-col>
           <ion-col> {{user.nick}}</ion-col>
           <ion-col col-2> {{user.punkte}}</ion-col>
       </ion-row>

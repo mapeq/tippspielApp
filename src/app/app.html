@@ -15,5 +15,29 @@
 
 </ion-menu>
 
+<ion-list>
+<!--    <button  ion-item *ngFor="let p of pages, let i = index" (click)="openPage(p)" icon-left class="menuButton" hideWhen="1===1" > -->
+     <div *ngFor="let p of pages, let i = index" (click)="openPage(p)" icon-left class="menuButton"  >
+       <button ion-item class="menuButton" *ngIf="p.show" >
+          <ion-grid >
+              <ion-row class="menuItem" >
+                  <ion-col col-2>
+                    <ion-icon *ngIf="i == 99" name="home"></ion-icon>
+                    <ion-icon *ngIf="i == 0" name="log-out"></ion-icon>
+                    <ion-icon *ngIf="i == 1" name="log-in"></ion-icon>
+                    <ion-icon *ngIf="i == 2" name="settings"></ion-icon>
+                    <ion-icon *ngIf="i == 3" name="information-circle"></ion-icon>
+                    <ion-icon *ngIf="i == 4" name="cloud-upload"></ion-icon>
+                  </ion-col>
+                  <ion-col col-9>
+                    <span>{{p.title}}</span>
+                  </ion-col>
+              </ion-row>
+          </ion-grid>
+        </button>
+      </div>
+</ion-list>
+
+
 <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
 <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
