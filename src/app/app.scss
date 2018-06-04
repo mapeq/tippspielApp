@@ -31,6 +31,7 @@
   color: #fffdfd;
   font-size: 1.5em;
   background-image: url(../assets/imgs/bgTrophy2.bmp) ;
+  background-color: white;
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -49,20 +50,21 @@
 
 
 }
+
+/*
 .toolbar-md{
   background-color: white;
-}
+}*/
 
 .toolbar-title-md,.bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default{
   text-shadow: 1px 1px 2px #000, 2px 2px 4px #6f6e72;
   color: #fffdfd;
 }
 
-
-.toolbar-background-md{
-  background: linear-gradient(to bottom,rgba(255,255,255,0.5),rgba(0,57,166,0.5),rgba(213,43,30,0.5));
-  color: white;
+.toolbar-background-md,.toolbar-background-ios,.toolbar-background-wp{
+    @include  gradient-russia;
 }
+
 
 
 /**
@@ -76,14 +78,6 @@ button.menuButton.item.item-block.item-md:hover,button.menuButton.item.item-bloc
 }
 
 
-<<<<<<< HEAD
-.menuContent .toolbar-background-md{
-  background: linear-gradient(to bottom,lightgrey,grey);
-  color: white;
-}
-
-=======
->>>>>>> 288db9290bd8c5f5523f1753460b3024caafee8c
 .menuContent .userName{
  font-size: large;
  font-weight: bolder;
@@ -91,8 +85,8 @@ button.menuButton.item.item-block.item-md:hover,button.menuButton.item.item-bloc
 
 
 .menuContent .content-md{
- background-color: grey;
- background-image: inherit;
+// background-color: grey;
+ //background-image: inherit;
 }
 
 .menuContent .menuItem{
@@ -118,10 +112,6 @@ button.menuButton.item.item-block.item-md:hover,button.menuButton.item.item-bloc
       @include gradient-orange-white ;
 }
 
-
-.toolbar-background-md,.toolbar-background-ios,.toolbar-background-wp{
-    @include  gradient-orange;
-}
 
 .menuHeader .toolbar-background-md,.toolbar-background-ios,.toolbar-background-wp{
   //  @include  gradient-light-grey;
