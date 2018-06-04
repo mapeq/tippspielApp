@@ -70,15 +70,11 @@
 **/
 
 
-.menuContent .userBox{
-   margin-bottom: 15%;
-   background-color: white;
- //  background-color: rgba(255, 255, 255, .5);
- border: solid;
- border-color: lightgrey;
- border-radius: 15px;
-
+button.menuButton.item.item-block.item-md:hover,button.menuButton.item.item-block.item-ios:hover {
+  font-weight: bolder;
+  background-color: rgba(180, 179, 179, 0.5)!important;
 }
+
 
 .menuContent .userName{
  font-size: large;
@@ -101,4 +97,19 @@
 button.menuButton.item.item-block.item-md:hover,button.menuButton.item.item-block.item-ios:hover {
  font-weight: bolder;
  background-color: rgba(180, 179, 179, 0.5)!important;
+}
+
+
+.menuContent{
+      @include gradient-orange-white ;
+}
+
+
+.toolbar-background-md,.toolbar-background-ios,.toolbar-background-wp{
+    @include  gradient-orange;
+}
+
+.menuHeader .toolbar-background-md,.toolbar-background-ios,.toolbar-background-wp{
+  //  @include  gradient-light-grey;
+      @include  gradient-orange;
 }
