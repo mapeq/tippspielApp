@@ -12,6 +12,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {ApiModule} from '../api.module';
 import { IonicStorageModule } from '@ionic/storage';
+import { EndpointProvider } from '../providers/endpoint/endpoint';
+import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 
 
 
@@ -40,7 +42,9 @@ import { IonicStorageModule } from '@ionic/storage';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    {provide: BASE_PATH, useValue: 'http://192.168.0.199/tippspielDB'},
+    EndpointProvider
   ]
 })
 export class AppModule {}

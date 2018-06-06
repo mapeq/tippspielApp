@@ -1,0 +1,30 @@
+<!--
+  Generated template for the GamesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Spiele</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-card *ngFor="let game of games">
+    <ion-card-header>
+      {{game.ANSTOSS}}
+    </ion-card-header>
+    <ion-card-content>
+<img src="../../assets/imgs/{{game.ICON1}}.gif" width="16px" height="11px"/>      <ion-label>
+      {{game.NAME1}} - {{game.NAME2}}
+    </ion-label>
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>

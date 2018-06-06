@@ -31,6 +31,8 @@ export class ImageService {
     public configuration = new Configuration();
 
     constructor(protected httpClient: HttpClient, @Optional()@Inject(BASE_PATH) basePath: string, @Optional() configuration: Configuration) {
+        console.log('base: ' + basePath);
+
         if (basePath) {
             this.basePath = basePath;
         }
@@ -57,7 +59,7 @@ export class ImageService {
 
     /**
      * Submit a Tipp
-     * 
+     *
      * @param imgId User token.
      * @param imgSize User token.
      * @param userId User token.

@@ -23,18 +23,18 @@
     </ion-card-header>
     <ion-card-content>
       <form [formGroup] = "loginForm">
-        <ion-item *ngIf="!currentUser" >
+        <ion-item  >
           <ion-label  floating >Benutzername</ion-label>
           <ion-input  formControlName= "userName" type="text" ></ion-input>
         </ion-item>
 
-        <ion-item  *ngIf="!currentUser">
+        <ion-item >
           <ion-label floating>Passwort</ion-label>
           <ion-input formControlName= "password" type="password" ></ion-input>
         </ion-item>
 
 
-        <button *ngIf="!currentUser" ion-button color="tof-orange" type="submit" [disabled]="!loginForm.valid" class="loginBtn" (click) = "login()" >Anmelden</button>
+        <button  ion-button color="tof-orange" type="submit" [disabled]="!loginForm.valid" class="loginBtn" (click) = "login()" >Anmelden</button>
         <button  ion-button color="tof-orange" type="cancel"  class="loginBtn" (click)="cancel()">Abrechen</button>
       </form>
 
@@ -43,17 +43,8 @@
 
 </ion-card>
 
-
-
         </ion-col>
       </ion-row>
-
-      <ion-row class="loginrow" justify-content-center row-2>
-        <ion-col col-auto >
-          <img class="imageRotate" src="assets/img/TOF_Logo.png" alt="">
-        </ion-col>
-      </ion-row>
-  </ion-grid>
-
+</ion-grid>
 
 </ion-content>

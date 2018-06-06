@@ -16,4 +16,5 @@ export interface Standing {
     nick?: string;
     punkte?: number;
     image?:number;
+    imageUrl:string;
 }
