@@ -7,6 +7,9 @@
 <ion-header>
 
   <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>Spiele</ion-title>
   </ion-navbar>
 
@@ -20,9 +23,22 @@
       {{game.ANSTOSS}}
     </ion-card-header>
     <ion-card-content>
-<img src="../../assets/imgs/{{game.ICON1}}.gif" width="16px" height="11px"/>      <ion-label>
-      {{game.NAME1}} - {{game.NAME2}}
-    </ion-label>
+      <ion-grid no-padding>
+          <ion-row nowrap nopadding>
+              <ion-col col-auto align-self-center	>
+                <img src="../../assets/imgs/big/{{game.ICON1}}.gif" class="flagImg"/>
+              </ion-col>
+              <ion-col>
+                <ion-label class="gameLabel">{{game.NAME1}} - {{game.NAME2}}</ion-label>
+              </ion-col>
+              <ion-col col-auto align-self-center>
+                <img src="../../assets/imgs/big/{{game.ICON2}}.gif" class="flagImg"/>
+              </ion-col>
+              <ion-col >
+              </ion-col>
+          </ion-row>
+      </ion-grid>
+
     </ion-card-content>
 
   </ion-card>
