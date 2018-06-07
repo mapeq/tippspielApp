@@ -36,4 +36,9 @@ export class GamesPage {
 
   }
 
+  openGame(game:Tipp){
+    console.log('game' + JSON.stringify(game))
+    this.navCtrl.push('BetPage',{'game': game  } );
+  }
+
 }

@@ -13,7 +13,7 @@
 
 export interface Tipp {
     SPIEL_ID?: number;
-    BEZEICNUNG?: string;
+    BEZEICHNUNG?: string;
     NAME1?: string;
     NAME2?: string;
     ICON1?: string;
