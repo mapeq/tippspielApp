@@ -27,11 +27,16 @@ export class GamesPage {
     console.log('ionViewDidLoad GamesPage');
   }
 
-  loadData(){
+
+  loadData(refresher?:any){
     let that = this;
+
+    console.log(refresher);
       this.GameApi.getGames().subscribe(function (data) {
           that.games = data;
-
+          if(refresher){
+            refresher.complete();
+          }
       });
 
   }

@@ -18,11 +18,19 @@
 
 <ion-content padding>
 
+  <ion-refresher (ionRefresh)="loadData($event)">
+    <ion-refresher-content>
+      <ion-label class="gameLabel">Hallo</ion-label>
+
+    </ion-refresher-content>
+  </ion-refresher>
+
+
   <ion-card *ngFor="let game of games" >
-    <ion-card-header>
+    <ion-card-header  (click)="openGame(game)">
       {{game.ANSTOSS}}
     </ion-card-header>
-    <ion-card-content (click)="openGame(game)">
+    <ion-card-content  (click)="openGame(game)">
       <ion-grid no-padding>
           <ion-row nowrap nopadding>
             <ion-col >
@@ -44,5 +52,4 @@
     </ion-card-content>
 
   </ion-card>
-
 </ion-content>

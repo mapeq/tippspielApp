@@ -18,6 +18,50 @@
 
 <ion-content padding>
 
-  <ion-label *ngIf="game">{{game.BEZEICNUNG}}</ion-label>
+  <ion-card *ngIf="game" >
+    <ion-card-header>
+      {{game.ANSTOSS}}
+    </ion-card-header>
+    <ion-card-content >
+  <ion-grid >
+    <ion-row nowrap>
+        <ion-col col-auto align-self-center	>
+          <img src="../../assets/imgs/big/{{game.ICON1}}.gif" class="flagImg"/>
+      </ion-col>
+      <ion-col></ion-col>
+      <ion-col col-auto align-self-center	>
+        <img src="../../assets/imgs/big/{{game.ICON2}}.gif" class="flagImg"/>
+    </ion-col>
+    </ion-row>
+    <ion-row nowrap>
+        <ion-col col-auto align-self-center	>
+          <ion-item>
+            <ion-input class="inTore" type="number" min="0" max="20" [(ngModel)]="game.TIPPTORE1"></ion-input>
+          </ion-item>
+      </ion-col>
+      <ion-col></ion-col>
+        <ion-col col-auto align-self-center	>
+          <ion-item>
+            <ion-input class="inTore" type="number" min="0" max="20" [(ngModel)]="game.TIPPTORE2"></ion-input>
+          </ion-item>
+      </ion-col>
+    </ion-row >
+    <ion-row nowrap>
+      <ion-col></ion-col>
+    <ion-col>
+      <ion-label class="gameLabel">{{game.NAME1}} - {{game.NAME2}}</ion-label>
+    </ion-col>
+    <ion-col></ion-col>
+    </ion-row>
+    <ion-row nowrap>
+      <ion-col></ion-col>
+    <ion-col>
+    <button  ion-button>Tipp abgeben</button>
+    </ion-col>
+    <ion-col></ion-col>
+    </ion-row>
+  </ion-grid>
 
-</ion-content>
+</ion-card-content>
+
+</ion-card>
