@@ -11,14 +11,11 @@
  */
 
 
-export interface Standing {
-    rang?: number;
-    nick?: string;
-    punkte?: number;
-    image?: number;
-    imageUrl?: string;
-    ANZAHL_ERGEBNIS?: number;
-    ANZAHL_SPIELE?: number;
-    ANZAHL_SPIELAUSGANG?: number;
-    PROZENT?: number;
+export interface TippResult {
+    USER_ICON?: number;
+    USER_ID?: number;
+    GAME_ID?: string;
+    NICK?: string;
+    ERGEBNIS?: string;
+    PUNKTE?: number;
 }

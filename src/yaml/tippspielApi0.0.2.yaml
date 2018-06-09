@@ -1,0 +1,498 @@
+swagger: "2.0"
+info:
+  description: ""
+  version: "0.0.2"
+  title: "Tippspiel"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "apiteam@swagger.io"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "192.168.0.199"
+basePath: "/tippspielDB"
+
+
+schemes:
+- "http"
+- "https"
+paths:
+  /LOGIN/{email}:
+    post:
+      tags:
+      - "User"
+      summary: "User Login"
+      description: ""
+      operationId: "login"
+      consumes:
+      - application/x-www-form-urlencoded
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+        - in: path
+          name: email
+          type: string
+          required: true
+          description: The Users Login Email.
+        - name: METHOD
+          in: formData
+          required: true
+          type: "string"
+          enum: [PUT]
+        - name: passphrase
+          in: formData
+          required: true
+          type: "string"
+      responses:
+        200:
+          schema: 
+            type: array
+            items:
+              $ref: '#/definitions/loginData'
+          description: "Success"
+    
+  /LOGIN/{token}/delete:
+    post:
+      tags:
+      - "User"
+      summary: "User Logout"
+      description: ""
+      operationId: "logout"
+      consumes:
+      - application/x-www-form-urlencoded
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+        - in: path
+          name: token
+          type: string
+          required: true
+          description: The Users Login Email.
+        - name: METHOD
+          in: formData
+          required: true
+          type: "string"
+          enum: [DELETE]
+        - name: passphrase
+          in: formData
+          required: true
+          type: "string"
+      responses:
+        200:
+          schema: 
+            type: array
+            items:
+              $ref: '#/definitions/loginData'
+          description: "Success"
+  
+  /LOGIN/{token}/IS:
+    get:
+      tags:
+      - "User"
+      summary: "User Login"
+      description: ""
+      operationId: "isLoggedIn"
+      consumes:
+      - application/x-www-form-urlencoded
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+        - in: path
+          name: token
+          type: string
+          required: true
+          description: The Users Login Email.
+        - name: passphrase
+          in: query
+          required: true
+          type: "string"
+      responses:
+        200:
+          schema: 
+            type: array
+            items:
+              $ref: '#/definitions/loginData'
+          description: "Success"        
+  
+  /IMAGE/{imgId}/{imgSize}/{userId}:
+   get:
+      tags:
+      - "Image"
+      summary: "Submit a Tipp"
+      description: ""
+      operationId: "getImage"
+      consumes:
+      - application/json
+      produces:
+      - image/jpeg
+      parameters:
+        - in: path
+          name: imgId
+          type: string
+          required: true
+          description: User token.
+        - in: path
+          name: imgSize
+          type: string
+          required: true
+          description: User token.
+        - in: path
+          name: userId
+          type: string
+          required: true
+          description: User token.
+      responses:
+        200:
+          description: "Success"
+          
+  /Tipp/{token}:
+   post:
+      tags:
+      - "Tipp"
+      summary: "Submit a Tipp"
+      description: ""
+      operationId: "addBet"
+      consumes:
+      - application/x-www-form-urlencoded
+      produces:
+      - "application/json"
+      parameters:
+        - in: path
+          name: token
+          type: string
+          required: true
+          description: User token.
+        - in: formData
+          name: tipps
+          required: true
+          type: string
+          format: json
+        - name: passphrase
+          in: formData
+          required: true
+          type: "string"
+      responses:
+        200:
+          description: "Success"
+          
+  /Tipp/ALL/{gameId}:
+    get:
+      tags:
+      - "Tipp"
+      summary: "Submit a Tipp"
+      description: ""
+      operationId: "getAllBets"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+        - in: path
+          name: gameId
+          type: string
+          required: true
+          description: User token.
+        - name: passphrase
+          in: query
+          required: true
+          type: "string"
+      responses:
+        200:
+          schema: 
+            type: array
+            items:
+              $ref: '#/definitions/tippResult'
+          description: "Success"
+  
+  /Tipp/{userId}/{token}:
+    get:
+      tags:
+      - "Tipp"
+      summary: "Submit a Tipp"
+      description: ""
+      operationId: "getUsersBets"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+        - in: path
+          name: userId
+          type: integer
+          required: true
+          description: User token.
+        - in: path
+          name: token
+          type: string
+          required: true
+          description: User token.
+        - name: passphrase
+          in: query
+          required: true
+          type: "string"
+      responses:
+        200:
+          schema: 
+            type: array
+            items:
+              $ref: '#/definitions/tipp'
+          description: "Success"
+          
+ 
+  
+  /SPIEL:
+   get:
+      tags:
+      - "Game"
+      summary: "Get all games"
+      description: ""
+      operationId: "getGames"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          schema: 
+            type: array
+            items:
+              $ref: '#/definitions/tipp'
+          description: "Success"
+  
+  /SPIEL/LAST:
+   get:
+      tags:
+      - "Game"
+      summary: "Get all games"
+      description: ""
+      operationId: "getLastGames"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          schema: 
+            type: array
+            items:
+              $ref: '#/definitions/tipp'
+          description: "Success"
+          
+  /SPIEL/NEXT:
+   get:
+      tags:
+      - "Game"
+      summary: "Get all games"
+      description: ""
+      operationId: "getNextGames"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          schema: 
+            type: array
+            items:
+              $ref: '#/definitions/tipp'
+          description: "Success"
+          
+  /SPIEL/TIPP_WITHOUT/{token}:
+   get:
+      tags:
+      - "Game"
+      summary: "Get all games"
+      description: ""
+      operationId: "getGamesWObet"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+        - in: path
+          name: token
+          type: string
+          required: true
+        - name: passphrase
+          in: query
+          required: true
+          type: "string"
+      responses:
+        200:
+          schema: 
+            type: array
+            items:
+              $ref: '#/definitions/tipp'
+          description: "Success"
+          
+  /MANNSCHAFT:
+   get:
+      tags:
+      - "Mannschaft"
+      summary: "Submit a Tipp"
+      description: ""
+      operationId: "getTeams"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          schema: 
+            type: array
+            items:
+              $ref: '#/definitions/team'
+          description: "Success"
+          
+  /STANDING:
+   get:
+      tags:
+      - "Stats"
+      summary: "Submit a Tipp"
+      description: ""
+      operationId: "getStanding"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          schema: 
+            type: array
+            items:
+              $ref: '#/definitions/standing'
+          description: "Success"
+      
+definitions:
+  loginData:
+    type: "object"
+    properties:
+      LOGIN:
+        type: boolean
+      TOKEN:
+        type: string
+      USER_ID:
+        type: integer
+        format: int64
+      NICK:
+        type: string
+      VORNAME:
+        type: string
+      NAME:
+        type: string
+      ERROR_CODE:
+        type: string
+      EMAIL:
+        type: string
+      PW:
+        type: string
+      
+
+  standing:
+    type: "object"
+    properties:
+      rang:
+        type: integer
+        format: int64
+      nick:
+        type: string
+      punkte:
+        type: integer
+        format: int64
+
+  team:
+    type: "object"
+    properties:
+      MANNSCHAFT_ID:
+        type: integer
+        format: int64
+      NAME:
+        type: string
+      ICON:
+        type: string
+      TEAMCOLOR1:
+        type: string
+      TEAMCOLOR2:
+        type: string
+      FIFA_RANG:
+        type: integer
+        format: int32
+      ANZAHL_SIEGE:
+        type: integer
+        format: int32
+      ANZAHL_NIEDERLAGEN:
+        type: integer
+        format: int32
+      ANZAHL_UNENTSCHIEDEN:
+        type: integer
+        format: int32
+      TORVERHAELTNIS:
+        type: string
+      SATZSTATUS:
+        type: string
+      ACTIVE:
+        type: integer
+        format: int32
+  
+  tippResult:
+    type: "object"
+    properties:
+      USER_ICON:
+        type: "integer"
+        format: "int32"
+      USER_ID:
+        type: "integer"
+        format: "int64"
+      GAME_ID:
+        type: "string"
+      NICK:
+        type: "string"
+      ERGEBNIS:
+        type: "string"
+      PUNKTE:
+        type: "integer"
+        format: "int32"
+    
+  tipp:
+    type: "object"
+    properties:
+      SPIEL_ID:
+        type: "integer"
+        format: "int64"
+      BEZEICNUNG:
+        type: "string"
+      NAME1:
+        type: "string"
+      NAME2:
+        type: "string"
+      ICON1:
+        type: "string"
+      ICON2:
+        type: "string"
+      TORE1:
+        type: "integer"
+        format: "int32"
+      TORE2:
+        type: "integer"
+        format: "int32"
+      ANSTOSS:
+        type: "string"
+        format: "date-time"
+      GRUPPE:
+        type: "string"
+      GRUPPE_ID:
+        type: "integer"
+        format: "int64"
+      ANZ_TIPP:
+        type: "integer"
+        format: "int32"
+      TIPPTORE1:
+        type: "integer"
+        format: "int32"
+      TIPPTORE2:
+        type: "integer"
+        format: "int32"
+ 

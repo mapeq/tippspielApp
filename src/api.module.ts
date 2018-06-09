@@ -2,6 +2,7 @@ import { NgModule, ModuleWithProviders, SkipSelf, Optional } from '@angular/core
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Configuration } from './configuration';
+
 import { GameService } from './api/game.service';
 import { ImageService } from './api/image.service';
 import { MannschaftService } from './api/mannschaft.service';
