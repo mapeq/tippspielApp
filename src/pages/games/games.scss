@@ -1,7 +1,11 @@
 page-games {
 
+  ion-content { background-color: transparent !important; }
+
+
     .card-md{
       background-color: inherit;
+      cursor: pointer;
     }
 
     .card-header-md{

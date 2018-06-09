@@ -1,4 +1,6 @@
-page-home {
+page-standing {
+  ion-content { background-color: transparent !important; }
+
   .col{
   //  border: dotted;
     text-align: center;
@@ -14,10 +16,10 @@ page-home {
   }
 
   .even{
-    background-color: #979394;
+    background-color: rgba(151, 147, 148, 0.75);
   }
   .odd{
-    background: #464444;
+    background-color:  rgba(70, 68, 68, 0.75);
     }
 
     .tableRow{

@@ -20,15 +20,15 @@ export class GamesPage {
   private games: Array<Tipp>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private GameApi:GameService) {
+  }
+
+  ionViewWillEnter() {
     this.loadData();
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad GamesPage');
-  }
 
-
-  loadData(refresher?:any){
+private  loadData(refresher?:any){
+    this.games = undefined;
     let that = this;
 
     console.log(refresher);
@@ -41,8 +41,7 @@ export class GamesPage {
 
   }
 
-  openGame(game:Tipp){
-    console.log('game' + JSON.stringify(game))
+private  openGame(game:Tipp){
     this.navCtrl.push('BetPage',{'game': game  } );
   }
 

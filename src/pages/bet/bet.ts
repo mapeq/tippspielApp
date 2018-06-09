@@ -23,10 +23,12 @@ export class BetPage {
   }
 
   ionViewWillEnter() {
-    console.log(JSON.stringify(this.navParams.get('game')));
     this.game =  this.navParams.get('game');
-    this.game.TIPPTORE1 = 0;
-    this.game.TIPPTORE2 = 0;
+    if(this.game != undefined){
+      this.game.TIPPTORE1 = 0;
+      this.game.TIPPTORE2 = 0;
+    }
+
 
   }
 

@@ -19,7 +19,7 @@
 <!--    <button  ion-item *ngFor="let p of pages, let i = index" (click)="openPage(p)" icon-left class="menuButton" hideWhen="1===1" > -->
 
      <div *ngFor="let p of pages, let i = index" (click)="openPage(p)" icon-left class="menuButton"  >
-       <button ion-item class="menuButton" *ngIf="p.show || true" >
+       <button menuClose  ion-item class="menuButton" *ngIf="p.show || true" >
           <ion-grid >
               <ion-row class="menuItem" >
                   <ion-col col-2>

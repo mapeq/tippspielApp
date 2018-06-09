@@ -19,6 +19,7 @@
 <ion-content padding>
 
   <ion-card *ngIf="game" >
+    
     <ion-card-header>
       {{game.ANSTOSS}}
     </ion-card-header>
@@ -56,7 +57,7 @@
     <ion-row nowrap>
       <ion-col></ion-col>
     <ion-col>
-    <button  ion-button>Tipp abgeben</button>
+    <button  class="gameLabel" ion-button width="60vw" height="12vh">Tipp abgeben</button>
     </ion-col>
     <ion-col></ion-col>
     </ion-row>
