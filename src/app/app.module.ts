@@ -43,7 +43,8 @@ import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables'
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    {provide: BASE_PATH, useValue: 'http://192.168.0.199/tippspielDB'},
+  //  {provide: BASE_PATH, useValue: 'http://192.168.0.199/tippspielDB'},
+  {provide: BASE_PATH, useValue: 'https://db.mapeq.de/tippspielDB/'},
     EndpointProvider
   ]
 })
