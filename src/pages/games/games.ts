@@ -32,7 +32,7 @@ private  loadData(refresher?:any){
     let that = this;
 
     console.log(refresher);
-      this.GameApi.getGames().subscribe(function (data) {
+      this.GameApi.getGamesWObet().subscribe(function (data) {
           that.games = data;
           if(refresher){
             refresher.complete();

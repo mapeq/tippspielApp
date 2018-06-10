@@ -13,17 +13,17 @@
 
 export interface Tipp {
     SPIEL_ID?: number;
-    BEZEICNUNG?: string;
-    nAME1?: string;
-    nAME2?: string;
-    iCON1?: string;
-    iCON2?: string;
-    tORE1?: number;
-    tORE2?: number;
+    BEZEICHNUNG?: string;
+    NAME1?: string;
+    NAME2?: string;
+    ICON1?: string;
+    ICON2?: string;
+    TORE1?: number;
+    TORE2?: number;
     ANSTOSS?: Date;
     GRUPPE?: string;
     GRUPPE_ID?: number;
     ANZ_TIPP?: number;
-    tIPPTORE1?: number;
-    tIPPTORE2?: number;
+    TIPPTORE1?: number;
+    TIPPTORE2?: number;
 }
