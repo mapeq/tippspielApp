@@ -4,7 +4,9 @@ import { Standing } from '../../model/standing';
 import { StatsService } from '../../api/stats.service';
 import {ImageService} from '../../api/image.service';
 import { Inject, Optional }  from '@angular/core';
-import { BASE_PATH }                     from '../../variables';
+import { BASE_PATH }  from '../../variables';
+import {EndpointProvider} from '../../providers/endpoint/endpoint';
+
 
 @IonicPage()
 @Component({
@@ -17,7 +19,9 @@ export class StandingPage {
   private imgsrc:string;
   private basePath:string;
 
-  constructor(public navCtrl: NavController, private statsApi: StatsService,  @Optional()@Inject(BASE_PATH) basePath: string) {
+  constructor(public navCtrl: NavController, private statsApi: StatsService,  @Optional()@Inject(BASE_PATH) basePath: string,
+  private endpoint: EndpointProvider
+) {
         this.basePath = basePath;
         this.imgsrc = basePath +"IMAGE/{{user.image}}/S/";
 
@@ -26,9 +30,12 @@ export class StandingPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad StandingPage');
   }
-  
+
   ionViewWillEnter(){
-      this.loadData();
+      this.endpoint.checkLogin().then(check =>{
+        this.loadData();
+      });
+
   }
 
   private loadData(){

@@ -16,6 +16,11 @@ page-bet {
   }
 
 
+.betButton{
+   width: 60vw;
+   height: 12vh;
+}
+
 .inTore{
   font-size: 6.3vw;
 
@@ -30,8 +35,33 @@ page-bet {
     font-size: 7.3vw;
   }
 
+
+  .flagImg{
+    width: 60px;
+    height: 40px;
+  }
+
+@media only screen and (min-width: 380px) {
   .flagImg{
     width: 120px;
     height: 80px;
   }
+}
+
+@media only screen and (min-width: 780px) {
+  .flagImg{
+    width: 240px;
+    height: 160px;
+  }
+}
+
+  @media only screen and (min-width: 1300px) {
+    .flagImg{
+        width: 100%;
+        height:100%;
+    }
+
+}
+
+
 }

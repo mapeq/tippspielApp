@@ -21,4 +21,5 @@ export interface LoginData {
     ERROR_CODE?: string;
     EMAIL?: string;
     PW?: string;
+    PASSPHRASE?:string
 }
