@@ -32,9 +32,9 @@ export class StandingPage {
   }
 
   ionViewWillEnter(){
-      this.endpoint.checkLogin().then(check =>{
+      this.endpoint.checkLogin(true).then(check =>{
         this.loadData();
-      });
+      }).catch(err => {});;
 
   }
 

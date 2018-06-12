@@ -78,7 +78,6 @@ private checkLogin(){
 console.log('checkLogin');
 
   this.endpoint.checkLogin(false).then(user =>{
-      console.log('LoginPage getuser ' + + JSON.stringify(user));
     if(user != undefined){
       if(user.LOGIN){
         console.log('eingeloggt...');
@@ -86,9 +85,9 @@ console.log('checkLogin');
         that.switchRootPage();
       }
       that.email = user.EMAIL;
-    
+
     }
-  });
+  }).catch(err => {});;
 
 }
 logout(){

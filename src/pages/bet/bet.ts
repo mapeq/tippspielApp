@@ -27,6 +27,9 @@ export class BetPage {
   }
 
   ionViewWillEnter() {
+
+    this.endpoint.checkLogin(true).then(check =>{
+
     this.game =  this.navParams.get('game');
 
     if(this.game != undefined){
@@ -36,6 +39,7 @@ export class BetPage {
       this.navCtrl.setRoot('GamesPage');
     }
 
+  }).catch(err => {});
 
   }
 

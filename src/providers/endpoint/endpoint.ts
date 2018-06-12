@@ -89,7 +89,7 @@ export class EndpointProvider {
   public logout(push:boolean = true){
     let that = this;
     this.getUser().then(user =>{
-          console.log('endpoint try logout ' + JSON.stringify(user));
+
         if(user != undefined){
 
           user.LOGIN = false;
@@ -117,22 +117,30 @@ export class EndpointProvider {
       return new Promise((resolve, reject) => {
 
           that.getUser().then(user =>{
-                console.log('endpoint check getuser ' + JSON.stringify(user));
 
-            if(user != undefined && user.LOGIN){
+            if(user != undefined && user.PASSPHRASE != undefined && user.LOGIN){
 
                 that.userApi.isLoggedIn(user.TOKEN, user.PASSPHRASE).subscribe(function (loggedIn) {
-                      if(loggedIn){
-                          resolve(user);
+                      console.log(JSON.stringify(loggedIn));
+                      if(loggedIn && loggedIn.length >0){
+                        let  usr:LoginData = loggedIn[0]
+
+                          if(usr.LOGIN){
+                              resolve(usr);
+                          }else{
+                            that.logout(push);
+                            reject(user);
+                          }
                       }else{
                         that.logout(push);
-                      resolve(user);
+                        reject(user);
                       }
+
                 });
           }else{
-
+            console.log('logout');
             that.logout(push);
-            resolve(user);
+            reject();
           }
 
 
