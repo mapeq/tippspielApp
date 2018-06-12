@@ -5,7 +5,13 @@ import {UserService} from '../../api/user.service';
 import { Storage } from '@ionic/storage';
 import {LoginData} from '../../model/loginData';
 import {Md5} from 'ts-md5/dist/md5';
+import {Tipp} from '../../model/tipp';
+import {GameService} from '../../api/game.service';
 import { NavController, NavParams, Events} from 'ionic-angular';
+import { Standing } from '../../model/standing';
+import {TippService} from '../../api/tipp.service';
+
+
 
 /*
   Generated class for the EndpointProvider provider.
@@ -16,9 +22,94 @@ import { NavController, NavParams, Events} from 'ionic-angular';
 @Injectable()
 export class EndpointProvider {
 
-  constructor(public broadcast:Events, private statsApi: StatsService, private userApi:UserService, public storage: Storage) {
+  constructor(public broadcast:Events, private statsApi: StatsService, private userApi:UserService, public storage: Storage
+  ,private gameApi:GameService,  private tippApi:TippService) {
       console.log('endpoint geladen');
   }
+
+
+/*
+that.tippApi.addBet(user.TOKEN,  JSON.stringify(tipps), user.PASSPHRASE).subscribe(function (ok) {
+      that.hideLoading();
+      that.navCtrl.pop();
+})*/
+
+/**
+* GameApi
+**/
+public  getsubmitBetApi(tipp:Array<Tipp> ):Promise<Array<Tipp>>{
+ let that = this;
+    return new Promise((resolve, reject) => {
+            that.getUser().then( user =>{
+
+              that.tippApi.addBet(user.TOKEN,  JSON.stringify(tipp), user.PASSPHRASE,  'response').subscribe(function (response) {
+                  if(response.ok){
+                    resolve(response.body);
+                  }else if(response.status == 403){
+                    that.logout();
+                  }
+              }, function (err) {
+                 that.logout();
+              });
+
+            }).catch(err => {that.logout()});
+
+          });
+}
+
+
+
+/**
+* GameApi
+**/
+public  getStandingApi():Promise<Array<Standing>>{
+ let that = this;
+    return new Promise((resolve, reject) => {
+            that.getUser().then( login =>{
+
+              that.statsApi.getStanding( 'response').subscribe(function (response) {
+                  if(response.ok){
+                    resolve(response.body);
+                  }else if(response.status == 403){
+                    that.logout();
+                  }
+              }, function (err) {
+                 that.logout();
+              });
+
+            }).catch(err => {that.logout()});
+
+          });
+}
+
+
+
+/**
+* GameApi
+**/
+public  getGamesNoBetApi():Promise<Array<Tipp>>{
+ let that = this;
+    return new Promise((resolve, reject) => {
+            that.getUser().then( login =>{
+
+              that.gameApi.getGamesWObet(login.TOKEN, login.PASSPHRASE, 'response').subscribe(function (response) {
+
+                  if(response.ok){
+                    resolve(response.body);
+                  }else if(response.status == 403){
+                    that.logout();
+                  }
+              }, function (err) {
+                 that.logout();
+              });
+
+            }).catch(err => {that.logout()});
+
+          });
+}
+
+
+
 
   public getUser():Promise<LoginData> {
     let that = this;
@@ -32,9 +123,67 @@ export class EndpointProvider {
             login.passphrase = that.createPasshrase(login);
           }
               resolve(login);
-        });
+
+
+        }).catch(err => reject());
+
+
       });
   }
+
+  public isLoggedIn(checkRemote:boolean = false):Promise<boolean>{
+    let that = this;
+        return new Promise((resolve, reject) => {
+            that.getUser().then(user =>{
+              if(user && user.LOGIN){
+                if(checkRemote){
+                    that.getLoginApi(user).then(remoteusr => {
+                      resolve(remoteusr.LOGIN);
+                    }).catch(err => {resolve(false)});
+                }
+                resolve(true);
+              }else{
+                resolve(false);
+              }
+            }).catch(err => resolve(false));
+        });
+  }
+
+
+  public getLoginApi(user:LoginData):Promise<LoginData>{
+    let that = this;
+
+      return new Promise((resolve, reject) => {
+
+        this.userApi.isLoggedIn(user.TOKEN, user.PASSPHRASE, 'response').subscribe(function (response) {
+
+          if(response.ok){
+            let usrArr = response.body;
+
+              if(usrArr && usrArr.length >0){
+                  resolve(usrArr[0]);
+              }else{
+                reject();
+              }
+
+          }else{
+            reject();
+          }
+
+        }, function (err) {
+              reject();
+        }
+
+
+      );
+
+      });
+}
+
+
+
+
+
 
 
   private createPasshrase(loginData:LoginData):string{
@@ -47,7 +196,6 @@ export class EndpointProvider {
 
   private pushLoginPage(){
      this.broadcast.publish('LOGOUT');
-
   }
 
   login(login:LoginData):Promise<boolean> {
@@ -63,6 +211,7 @@ export class EndpointProvider {
             if(user.LOGIN){
               user.PW = login.PW;
               user.PASSPHRASE = that.createPasshrase(user);
+              user.EMAIL = login.EMAIL;
 
               that.storage.set("user", user).then(ok =>{
                   resolve(true);
@@ -86,7 +235,7 @@ export class EndpointProvider {
   }
 
 
-  public logout(push:boolean = true){
+  public logout(){
     let that = this;
     this.getUser().then(user =>{
 
@@ -99,18 +248,18 @@ export class EndpointProvider {
           user.TOKEN = '';
 
           that.storage.set('user', user).then(ok =>{
-          if(push){  that.pushLoginPage();}
+              that.pushLoginPage();
 
-          });
+            });
 
         }else{
-          if(push){that.pushLoginPage();}
+          that.pushLoginPage();
         }
     });
   }
 
 
-
+/*
   public checkLogin(push?:boolean):Promise<LoginData> {
     let that = this;
 
@@ -148,5 +297,5 @@ export class EndpointProvider {
     });
 
 }
-
+*/
 }

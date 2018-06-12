@@ -24,7 +24,7 @@ export class MyApp {
 
 
   private pages: Array<{title: string, component: any}>;
-  private user:LoginData = {NICK: "TEST"};
+  private user:LoginData ;
   private test:string;
   private basePath:string;
   private imageUrl:string;
@@ -57,13 +57,19 @@ export class MyApp {
   }
 
   openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
 
   logoutView(){
-          this.nav.setRoot(this.rootPage);
+
+    let view = this.nav.getActive();
+      console.log(view);
+      let ok:boolean = view.instance instanceof Login;
+      console.log("change:"  + !ok );
+      if ( !ok ){
+            this.nav.setRoot(this.rootPage);
+        }
+
   }
 
   logout(){
@@ -73,15 +79,8 @@ export class MyApp {
 
   onIonOpen(){
     let that = this;
-
       this.endpoint.getUser().then(data =>{
-        setTimeout(() => {
           that.user = data;
-          console.log('menu open' + JSON.stringify( that.user));
-          that.menuId++;
-        }, 1000)
-
-
       });
   }
 }

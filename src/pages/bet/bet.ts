@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams , LoadingController, Loading} from 'ionic-angular';
 import {Tipp} from '../../model/tipp';
-import {TippService} from '../../api/tipp.service';
 import {EndpointProvider} from '../../providers/endpoint/endpoint';
 
 /**
@@ -21,14 +20,12 @@ export class BetPage {
   private game:Tipp;
   loading: Loading;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private endpoint: EndpointProvider, private tippApi:TippService,
+  constructor(public navCtrl: NavController, public navParams: NavParams, private endpoint: EndpointProvider,
   public loadingCtrl: LoadingController) {
     this.game = {"BEZEICHNUNG": ""};
   }
 
   ionViewWillEnter() {
-
-    this.endpoint.checkLogin(true).then(check =>{
 
     this.game =  this.navParams.get('game');
 
@@ -39,9 +36,7 @@ export class BetPage {
       this.navCtrl.setRoot('GamesPage');
     }
 
-  }).catch(err => {});
-
-  }
+}
 
 
   showLoading(){
@@ -66,14 +61,15 @@ export class BetPage {
       let that = this;
       let tipps:Array<Tipp> = new Array<Tipp>(this.game);
 
-      this.endpoint.checkLogin().then(user => {
-
-          that.tippApi.addBet(user.TOKEN,  JSON.stringify(tipps), user.PASSPHRASE).subscribe(function (ok) {
-                that.hideLoading();
-                that.navCtrl.pop();
-          })
+      this.endpoint.getsubmitBetApi(tipps).then(tipp => {
+          that.hideLoading();
+          that.navCtrl.pop();
+      }).catch(err =>{
+        that.hideLoading();
+        that.navCtrl.pop();
 
       });
+
 
 
   }

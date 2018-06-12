@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {GameService} from '../../api/game.service';
 import {Tipp} from '../../model/tipp';
 import {EndpointProvider} from '../../providers/endpoint/endpoint';
 
@@ -20,14 +19,11 @@ export class GamesPage {
 
   private games: Array<Tipp>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private gameApi:GameService, private endpoint: EndpointProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private endpoint: EndpointProvider) {
   }
 
   ionViewWillEnter() {
-    this.endpoint.checkLogin(true).then(check =>{
-
       this.loadData();
-    }).catch(err => {});
   }
 
 
@@ -35,17 +31,13 @@ private  loadData(refresher?:any){
     this.games = undefined;
     let that = this;
 
-    this.endpoint.checkLogin().then(login =>{
-
-      that.gameApi.getGamesWObet(login.TOKEN, login.PASSPHRASE).subscribe(function (data) {
-          that.games = data;
-          if(refresher){
-            refresher.complete();
-          }
-      });
+    this.endpoint.getGamesNoBetApi().then(data => {
+        that.games = data;
+        if(refresher){
+          refresher.complete();
+        }
 
     });
-
 
 
   }

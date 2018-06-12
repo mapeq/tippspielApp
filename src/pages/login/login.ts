@@ -24,7 +24,6 @@ import {EndpointProvider} from '../../providers/endpoint/endpoint';
 export class Login {
   @ViewChild('select1') select: Select;
     loginForm: FormGroup;
-    selectedDG: any;
     loading: Loading;
     private  loginData: LoginData;
     autoLoginAttemp: boolean = true ;
@@ -75,22 +74,31 @@ private checkLogin(){
 
   this.menuCtrl.enable(false);
 
-console.log('checkLogin');
+console.log('Login: checkLogin');
 
-  this.endpoint.checkLogin(false).then(user =>{
-    if(user != undefined){
-      if(user.LOGIN){
-        console.log('eingeloggt...');
-        that.menuCtrl.enable(true)
-        that.switchRootPage();
-      }
-      that.email = user.EMAIL;
+this.endpoint.isLoggedIn(true).then( ok => {
 
-    }
-  }).catch(err => {});;
+  if(ok){
+    console.log('eingeloggt...');
+    that.menuCtrl.enable(true)
+    that.switchRootPage();
+  }else{
+
+      this.endpoint.getUser().then(user =>{
+          if(user){
+
+              that.loginForm.get('userName').setValue(user.EMAIL);
+          }
+      });
+
+  }
+
+}).catch(err=>{});
 
 }
 logout(){
+
+    this.endpoint.logout();
 //  this.menuCtrl.enable(true);
 //  this.navCtrl.setRoot(LoginPage);
 }
@@ -109,6 +117,8 @@ login() :boolean {
       if(ok){
         that.menuCtrl.enable(true)
         that.switchRootPage();
+      }else{
+        that.showToast("Benutzername oder Passwort nicht korrekt!");
       }
 
   });
