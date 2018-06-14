@@ -26,4 +26,6 @@ export interface Tipp {
     ANZ_TIPP?: number;
     TIPPTORE1?: number;
     TIPPTORE2?: number;
+    ERGEBNIS?:string;
+    PUNKTE?: number;
 }

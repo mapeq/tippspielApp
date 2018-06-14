@@ -37,6 +37,28 @@ that.tippApi.addBet(user.TOKEN,  JSON.stringify(tipps), user.PASSPHRASE).subscri
 /**
 * GameApi
 **/
+
+public  getUserBet( ):Promise<Array<Tipp>>{
+ let that = this;
+    return new Promise((resolve, reject) => {
+            that.getUser().then( user =>{
+
+              that.tippApi.getUsersBets(user.USER_ID, user.TOKEN, user.PASSPHRASE,  'response').subscribe(function (response) {
+                  if(response.ok){
+                    resolve(response.body);
+                  }else if(response.status == 403){
+                    that.logout();
+                  }
+              }, function (err) {
+                 that.logout();
+              });
+
+            }).catch(err => {that.logout()});
+
+          });
+}
+
+
 public  getsubmitBetApi(tipp:Array<Tipp> ):Promise<Array<Tipp>>{
  let that = this;
     return new Promise((resolve, reject) => {

@@ -1,0 +1,53 @@
+page-mybets {
+
+  ion-content { background-color: transparent !important; }
+
+
+  .gameLabel{
+    font-size: 4.5vw;
+  }
+
+  .flagImg{
+    width: 60px;
+    height: 40px;
+  }
+
+
+  .bet1{
+      background-image: linear-gradient(to right,rgba(255,255,255,0) 0,yellow 100%);
+    }
+
+    .bet3{
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0,  #F78D24 100%);
+      }
+
+
+
+  .even{
+    background-color: rgba(151, 147, 148, 0.75);
+  }
+  .odd{
+    background-color:  rgba(70, 68, 68, 0.75);
+    }
+
+    .tableRow{
+      font-size: 1.5em;
+    }
+
+    .headerRow{
+      white-space: nowrap;
+      width: 100%;
+      text-overflow: ellipsis;
+      word-wrap: normal;
+
+      border-bottom: 2px solid #6f7277;
+    padding: 3px 15px;
+    text-align: left;
+    color: #4b4a4a;
+    text-shadow: #ddf 1px 1px 0;
+    overflow: hidden;
+    font-weight: bold;
+    font-size: 1.5em;
+    }
+
+}
