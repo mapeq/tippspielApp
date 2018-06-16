@@ -13,18 +13,19 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import {ApiModule} from '../api.module';
 import { IonicStorageModule } from '@ionic/storage';
 import { EndpointProvider } from '../providers/endpoint/endpoint';
-import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
-
+import { BASE_PATH, COLLECTION_FORMATS }    from '../variables';
+import {SortPipe}  from "../pipes/sort/sort";
 
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
-    Login
+    Login,ListPage
+
   ],
   imports: [
+
     BrowserModule,
     IonicModule.forRoot(MyApp),
     ApiModule,
@@ -34,6 +35,7 @@ import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables'
   ],
   bootstrap: [IonicApp],
   entryComponents: [
+
     MyApp,
     HomePage,
     ListPage,

@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Tipp} from '../../model/tipp';
 import {EndpointProvider} from '../../providers/endpoint/endpoint';
+import {SortPipe}  from "../../pipes/sort/sort";
+
 
 /**
  * Generated class for the GamesPage page.
