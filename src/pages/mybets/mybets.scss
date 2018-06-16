@@ -4,13 +4,22 @@ page-mybets {
 
 
   .gameLabel{
-    font-size: 4.5vw;
+    font-size: 4.2vw;
   }
 
+
+  .flagImg{
+    width: 15px;
+    height: 10px;
+  }
+
+@media only screen and (min-width: 1000px) {
   .flagImg{
     width: 60px;
     height: 40px;
   }
+
+}
 
 
   .bet1{

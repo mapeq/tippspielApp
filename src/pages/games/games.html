@@ -31,19 +31,17 @@
     <ion-card-content  (click)="openGame(game)">
       <ion-grid no-padding>
           <ion-row nowrap nopadding>
-            <ion-col >
-            </ion-col>
+
               <ion-col col-auto align-self-center	>
                 <img src="../../assets/imgs/big/{{game.ICON1}}.gif" class="flagImg"/>
               </ion-col>
               <ion-col>
-                <ion-label class="gameLabel">{{game.NAME1}} - {{game.NAME2}}</ion-label>
+                <ion-label col-11   align-self-center class="gameLabel">{{game.NAME1}} - {{game.NAME2}}</ion-label>
               </ion-col>
               <ion-col col-auto align-self-center>
                 <img src="../../assets/imgs/big/{{game.ICON2}}.gif" class="flagImg"/>
               </ion-col>
-              <ion-col >
-              </ion-col>
+
           </ion-row>
       </ion-grid>
 

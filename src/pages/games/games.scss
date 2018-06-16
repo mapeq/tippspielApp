@@ -3,28 +3,37 @@ page-games {
   ion-content { background-color: transparent !important; }
 
 
-    .card-md{
+    .card-md,.card-ios{
       background-color: inherit;
       cursor: pointer;
     }
 
-    .card-header-md{
+    .card-header-md,.card-header-ios{
       background-color: rgba(57, 139, 243, 0.69);
       font-size: 6vw;
 
     }
 
-    .card-content-md{
+    .card-content-md,.card-content-ios{
       background-color: rgba(138, 183, 240, 0.5);
     }
 
   .gameLabel{
-    font-size: 4.5vw;
+    font-size: 4.2vw;
+        text-align: center;
   }
 
+  .flagImg{
+    width: 30px;
+    height: 20px;
+  }
+
+@media only screen and (min-width: 500px) {
   .flagImg{
     width: 60px;
     height: 40px;
   }
+
+}
 
 }

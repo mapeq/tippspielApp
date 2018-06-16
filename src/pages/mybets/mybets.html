@@ -27,11 +27,9 @@
   <ion-grid no-padding>
 
       <ion-row nowrap nopadding *ngFor="let game of games; even as isEven" [ngClass]="isEven ? 'even' : 'odd' ">
-        <ion-col >
-        </ion-col>
 
-        <ion-col>
-          <ion-label class="gameLabel">{{game.NAME1}}</ion-label>
+        <ion-col col-3>
+          <ion-label class="gameLabel" >{{game.NAME1}}</ion-label>
         </ion-col>
 
           <ion-col col-auto align-self-center	>
@@ -46,21 +44,18 @@
             <img src="../../assets/imgs/big/{{game.ICON2}}.gif" class="flagImg"/>
           </ion-col>
 
-          <ion-col>
-            <ion-label class="gameLabel">{{game.NAME2}}</ion-label>
+          <ion-col col-2>
+            <ion-label class="gameLabel" >{{game.NAME2}}</ion-label>
           </ion-col>
 
-          <ion-col >
+
+
+          <ion-col col-3>
+            <ion-label class="gameLabel">{{game.SPIELERGEBNIS}}</ion-label>
           </ion-col>
 
-          <ion-col>
-            <ion-label class="gameLabel">{{game.TORE1}} : {{game.TORE2}}</ion-label>
-          </ion-col>
 
-          <ion-col >
-          </ion-col>
-
-          <ion-col [ngClass]="game.PUNKTE > 0 ? game.PUNKTE == 3 ? 'bet3' : 'bet1' : '' " >
+          <ion-col  [ngClass]="game.PUNKTE > 0 ? game.PUNKTE == 3 ? 'bet3' : 'bet1' : '' "  >
             <ion-label class="gameLabel">{{game.ERGEBNIS}}</ion-label>
           </ion-col>
 

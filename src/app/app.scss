@@ -26,7 +26,7 @@
 */
 
 
-.content-md{
+.content-md,.content-ios{
   text-shadow: 1px 1px 2px #000, 2px 2px 4px #6f6e72;
   color: #fffdfd;
   font-size: 1.5em;
@@ -56,12 +56,14 @@
   background-color: white;
 }*/
 
-.toolbar-title-md,.bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default{
+.toolbar-title-md,.bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default,
+.toolbar-title-ios,.bar-button-default-ios, .bar-button-clear-ios-default, .bar-button-ios-default
+{
   text-shadow: 1px 1px 2px #000, 2px 2px 4px #6f6e72;
   color: #fffdfd;
 }
 
-.toolbar-background-md,.toolbar-background-ios,.toolbar-background-wp{
+.toolbar-background-md,.toolbar-background-ios,.toolbar-background-wp ,.header-ios{
     @include  gradient-russia;
 }
 
@@ -86,7 +88,7 @@ button.menuButton.item.item-block.item-md:hover,button.menuButton.item.item-bloc
 }
 
 
-.menuContent .content-md{
+.menuContent .content-md,.content-ios {
 // background-color: grey;
  //background-image: inherit;
 }

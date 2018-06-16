@@ -28,4 +28,5 @@ export interface Tipp {
     TIPPTORE2?: number;
     ERGEBNIS?:string;
     PUNKTE?: number;
+    SPIELERGEBNIS?:string;
 }
