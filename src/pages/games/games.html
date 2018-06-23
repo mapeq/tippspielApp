@@ -24,7 +24,8 @@
   </ion-refresher>
 
 
-  <ion-card *ngFor="let game of games | orderby:{col: 'ANSTOSS', order:1}" >
+  <ion-card *ngFor="let game of games | orderby:{col: 'ANSTOSS', order: 'asc'}" >
+
 
     <ion-card-header  (click)="openGame(game)">
       {{game.ANSTOSS}}

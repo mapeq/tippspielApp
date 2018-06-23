@@ -14,7 +14,6 @@ import {ApiModule} from '../api.module';
 import { IonicStorageModule } from '@ionic/storage';
 import { EndpointProvider } from '../providers/endpoint/endpoint';
 import { BASE_PATH, COLLECTION_FORMATS }    from '../variables';
-import {SortPipe}  from "../pipes/sort/sort";
 
 
 @NgModule({

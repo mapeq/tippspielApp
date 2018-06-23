@@ -11,14 +11,21 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class OrderbyPipe implements PipeTransform {
 
    transform(array: Array<string>, args?: any): Array<string> {
-     
+
+     let order:number = 1;
+
+     if(args.order &&  args.order == 'desc'){
+       order = -1;
+     }
+
      if(array != undefined){
+
        return array.sort(function(a, b){
          if(a[args.col] < b[args.col]){
-             return -1 * args.order;
+             return -1 * order;
          }
          else if( a[args.col] > b[args.col]){
-             return 1 * args.order;
+             return 1 * order;
          }
          else{
              return 0;
