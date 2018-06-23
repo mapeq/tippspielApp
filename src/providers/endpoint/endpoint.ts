@@ -58,6 +58,26 @@ public  getUserBet( ):Promise<Array<Tipp>>{
           });
 }
 
+public  getAllBets(gameId:string ):Promise<Array<Tipp>>{
+ let that = this;
+    return new Promise((resolve, reject) => {
+            that.getUser().then( user =>{
+
+              that.tippApi.getAllBets(gameId, user.PASSPHRASE,  'response').subscribe(function (response) {
+                  if(response.ok){
+                    resolve(response.body);
+                  }else if(response.status == 403){
+                    that.logout();
+                  }
+              }, function (err) {
+                 that.logout();
+              });
+
+            }).catch(err => {that.logout()});
+
+          });
+}
+
 
 public  getsubmitBetApi(tipp:Array<Tipp> ):Promise<Array<Tipp>>{
  let that = this;

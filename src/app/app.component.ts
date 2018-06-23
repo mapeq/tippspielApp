@@ -39,7 +39,9 @@ export class MyApp {
     this.pages = [
       { title: 'Tipptabelle', component: 'StandingPage' },
       { title: 'Spiele', component: 'GamesPage' },
-      { title: 'Meine Tipps', component: 'MybetsPage' }
+      { title: 'Meine Tipps', component: 'MybetsPage' },
+      { title: 'Alle Tipps', component: 'AllBetsPage' }
+
     ];
 
   }

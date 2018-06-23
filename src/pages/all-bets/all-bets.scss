@@ -1,0 +1,59 @@
+page-all-bets {
+
+  ion-content { background-color: transparent !important; }
+
+
+
+
+    .roundImg{
+      display: block;
+      margin: auto;
+    }
+
+    .even{
+      background-color: rgba(151, 147, 148, 0.75);
+    }
+    .odd{
+      background-color:  rgba(70, 68, 68, 0.75);
+      }
+
+      .tableRow{
+        font-size: 1.5em;
+      }
+
+
+
+      .card-md,.card-ios{
+        background-color: inherit;
+        cursor: pointer;
+      }
+
+      .card-header-md,.card-header-ios{
+        background-color: rgba(57, 139, 243, 0.69);
+        font-size: 6vw;
+
+      }
+
+      .card-content-md,.card-content-ios{
+        background-color: rgba(138, 183, 240, 0.5);
+      }
+
+    .gameLabel{
+      font-size: 4.2vw;
+          text-align: center;
+    }
+
+    .flagImg{
+      width: 30px;
+      height: 20px;
+    }
+
+  @media only screen and (min-width: 500px) {
+    .flagImg{
+      width: 60px;
+      height: 40px;
+    }
+
+  }
+
+}
