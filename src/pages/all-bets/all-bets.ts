@@ -38,16 +38,14 @@ export class AllBetsPage {
       this.loadData();
   }
 
-  gameSelected(game:Tipp){
+  gameSelected(){
     this.bets = undefined;
     let that = this;
-    console.log(JSON.stringify(this.selectedGame));
 
     this.endpoint.getAllBets(this.selectedGame.SPIEL_ID+"").then(data => {
 
-      
 
-      console.log(JSON.stringify(data));
+
         that.bets = data;
 
 
@@ -63,8 +61,12 @@ export class AllBetsPage {
       this.games = undefined;
       let that = this;
 
-      this.endpoint.getGamesNoBetApi().then(data => {
+      this.endpoint.getGamesApi().then(data => {
           that.games = data;
+          if(data && data.length > 0){
+            that.selectedGame = data[0];
+            that.gameSelected();
+          }
           if(refresher){
             refresher.complete();
           }

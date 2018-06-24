@@ -150,6 +150,27 @@ public  getGamesNoBetApi():Promise<Array<Tipp>>{
           });
 }
 
+public  getGamesApi():Promise<Array<Tipp>>{
+ let that = this;
+    return new Promise((resolve, reject) => {
+            that.getUser().then( login =>{
+
+              that.gameApi.getGames( 'response').subscribe(function (response) {
+
+                  if(response.ok){
+                    resolve(response.body);
+                  }else if(response.status == 403){
+                    that.logout();
+                  }
+              }, function (err) {
+                 that.logout();
+              });
+
+            }).catch(err => {that.logout()});
+
+          });
+}
+
 
 
 

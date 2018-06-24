@@ -17,6 +17,15 @@ page-all-bets {
       background-color:  rgba(70, 68, 68, 0.75);
       }
 
+
+      .bet1{
+          background-image: linear-gradient(to right,rgba(255,255,255,0) 0,yellow 100%);
+        }
+
+        .bet3{
+          background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0,  #F78D24 100%);
+          }
+
       .tableRow{
         font-size: 1.5em;
       }
@@ -41,6 +50,12 @@ page-all-bets {
     .gameLabel{
       font-size: 4.2vw;
           text-align: center;
+          padding: 0px;
+          margin: 0px;
+    }
+
+    .space{
+      height: 25%;
     }
 
     .flagImg{

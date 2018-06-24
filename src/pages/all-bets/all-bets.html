@@ -35,34 +35,47 @@
 
   <ion-card *ngIf="selectedGame" >
 
-  <ion-card-header >
-    {{selectedGame.ANSTOSS}}
-  </ion-card-header>
-  <ion-card-content >
-    <ion-grid no-padding>
-        <ion-row nowrap nopadding>
+    <ion-card-header >
+      {{selectedGame.ANSTOSS}}
+    </ion-card-header>
+    <ion-card-content >
+      <ion-grid no-padding>
+          <ion-row nowrap no-padding>
 
-            <ion-col col-auto align-self-center	>
-              <img src="../../assets/imgs/big/{{selectedGame.ICON1}}.gif" class="flagImg"/>
-            </ion-col>
-            <ion-col>
-              <ion-label col-11   align-self-center class="gameLabel">{{selectedGame.NAME1}} - {{selectedGame.NAME2}}</ion-label>
-            </ion-col>
-            <ion-col col-auto align-self-center>
-              <img src="../../assets/imgs/big/{{selectedGame.ICON2}}.gif" class="flagImg"/>
-            </ion-col>
+              <ion-col col-auto align-self-center	>
+                <img src="../../assets/imgs/big/{{selectedGame.ICON1}}.gif" class="flagImg"/>
+              </ion-col>
+              <ion-col>
+                <ion-label col-11   align-self-center class="gameLabel">{{selectedGame.NAME1}} - {{selectedGame.NAME2}}</ion-label>
+              </ion-col>
+              <ion-col col-auto align-self-center>
+                <img src="../../assets/imgs/big/{{selectedGame.ICON2}}.gif" class="flagImg"/>
+              </ion-col>
 
-        </ion-row>
-    </ion-grid>
+          </ion-row>
 
-  </ion-card-content>
+          <ion-row nowrap no-padding>
+
+              <ion-col  align-self-center	>
+              </ion-col>
+              <ion-col>
+                <ion-label col-11  class="gameLabel">{{selectedGame.TORE1}} : {{selectedGame.TORE2}}</ion-label>
+              </ion-col>
+              <ion-col  align-self-center>
+              </ion-col>
+
+          </ion-row>
+
+      </ion-grid>
+
+    </ion-card-content>
 
 </ion-card>
 
 
   <ion-grid no-padding *ngIf="bets">
 
-      <ion-row nowrap nopadding *ngFor="let game of bets | orderby:{col: 'ANSTOSS', order: 'desc' }; even as isEven" [ngClass]="isEven ? 'even' : 'odd' ">
+      <ion-row nowrap no-padding *ngFor="let game of bets | orderby:{col: 'ANSTOSS', order: 'desc' }; even as isEven" [ngClass]="isEven ? 'even' : 'odd' ">
 
         <ion-col col-2 align-self-center> <img class="roundImg" [src]= "getImageUrl(game.USER_ICON)" />  </ion-col>
 
@@ -70,11 +83,8 @@
           <ion-label class="gameLabel" >{{game.NICK}}</ion-label>
         </ion-col>
 
-
-
-
-
           <ion-col    [ngClass]="game.PUNKTE > 0 ? game.PUNKTE == 3 ? 'bet3' : 'bet1' : '' "  >
+              <ion-label class="gameLabel space" > </ion-label>
             <ion-label class="gameLabel">{{game.ERGEBNIS}}</ion-label>
           </ion-col>
 
